@@ -21,6 +21,11 @@ export default async function Signup(state: FormState, formData: FormData){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(validatedFields.data),
     });
+
+    if (!res.ok) {
+      return { message: 'Credenciais inválidas.' };
+    }
+
         
       } catch (error) {
         console.error(error);

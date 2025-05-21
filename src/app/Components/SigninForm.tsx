@@ -16,10 +16,14 @@ export default function SigninForm() {
           <label className='p-1' htmlFor="email">Email:</label>
           <input id="email" name="email" type="email" placeholder="Digite seu email" />
         </div>
+        {state?.errors?.name && (<p className="text-sm text-red-500">{state.errors.name}</p>)}
+
         <div>
           <label className='p-2' htmlFor="password">Password:</label>
           <input id="password" name="password" type="password" placeholder="Digite sua senha" />
         </div>
+        {state?.errors?.password && (<p className="text-sm text-red-500">{state.errors.password}</p>)}
+
         <LoginButton />
       </form>
       <div>

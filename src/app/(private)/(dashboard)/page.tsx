@@ -14,14 +14,23 @@ export default async function Dashboard() {
     }
   }
   )
-  const posts = await data.json()
+  type Post = {
+    _id: string;
+    title: string;
+    content: string;
+    userId: string;
+    createdAt: string;
+    tags: string[];
+  };
+
+  const posts:Post[] = await data.json()
 
 
   return (
     <>
       <p>posts</p>
       <div>
-        {posts.map((post: any) => (
+        {posts.map((post:Post) => (
           <div key={post._id}>
             <h2>{post.title}</h2>
             <p>{post.content}</p>

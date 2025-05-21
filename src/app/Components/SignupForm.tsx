@@ -9,15 +9,18 @@ export default function SignupForm() {
   return (
     <>
       <form className='' action={action}>
-      <div >
+        <div >
           <label htmlFor="name">Name</label>
           <input id="name" name="name" type="text" placeholder="Digite seu nome" />
         </div>
+        {state?.errors?.name && (<p className="text-sm text-red-500">{state.errors.name}</p>)}
         <div className=''>
           <label htmlFor="email">Email</label>
           <input id="email" name="email" type="email" placeholder="Digite seu email" />
         </div>
         <div>
+          {state?.errors?.email && (<p className="text-sm text-red-500">{state.errors.email}</p>)}
+
           <label htmlFor="password">Senha</label>
           <input id="password" name="password" type="password" placeholder='digite sua senha' />
         </div>
