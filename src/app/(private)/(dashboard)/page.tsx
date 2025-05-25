@@ -3,7 +3,6 @@ export default async function Dashboard() {
 
   const cookieStore = (await cookies()).get('token')
 
-  console.log(cookieStore)
   if (!cookieStore) {
     return 'erro no token'
   }
