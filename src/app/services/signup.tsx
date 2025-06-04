@@ -16,7 +16,7 @@ export default async function Signup(state: FormState, formData: FormData){
       }
 
       try {
-        const res = await fetch('http://localhost:5000/signup', {
+        const res = await fetch(`${process.env.API}/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(validatedFields.data),
