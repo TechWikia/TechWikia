@@ -6,7 +6,7 @@ export default async function Dashboard() {
   if (!cookieStore) {
     return 'erro no token'
   }
-  const data = await fetch(`${process.env.API}/post`, {
+  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/post`, {
     headers: {
       'Authorization': `Bearer ${cookieStore.value}`, // Use "Bearer" for JWT tokens
       'Content-Type': 'application/json' // Adjust if needed

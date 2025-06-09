@@ -17,7 +17,7 @@ export async function signin(state: FormState, formData: FormData): Promise<Form
   }
 
   try {
-    const res = await fetch(`${process.env.API}/signin`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/signin`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(validatedFields.data),
