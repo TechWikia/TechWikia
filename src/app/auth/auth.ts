@@ -40,6 +40,7 @@ export async function signin(state: FormState, formData: FormData): Promise<Form
       secure: process.env.NODE_ENV === 'production',
       path: '/',
       maxAge: 60 * 60 * 24 * 7, 
+      expires: 86400,
     });
 
  
