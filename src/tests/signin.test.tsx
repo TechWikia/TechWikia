@@ -6,3 +6,4 @@ test('Verificar se a página existe', () => {
     render(<SigninForm />)
     expect(screen.findAllByRole('form')).not.toBeNull
   })
+
