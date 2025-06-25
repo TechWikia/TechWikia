@@ -4,6 +4,6 @@ import  SigninForm  from '@/app/(public)/signin/page'
 
 test('Verificar se a página existe', () => {
     render(<SigninForm />)
-    expect(screen.findAllByRole('form')).not.toBeNull
+    expect(screen.findAllByRole('form')).not.toBeNull()
   })
 

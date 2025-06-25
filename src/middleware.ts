@@ -6,6 +6,8 @@ const publicRoutes = [
 
 ] as const
 
+
+
 const REDIRECT_WHEN_NOT_AUTHENTICATED_ROUTE = '/signin'
 
 export function middleware(request: NextRequest){

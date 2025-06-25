@@ -4,7 +4,7 @@ export default function PrivateLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <div>
+      <div className="h-screen w-screen">
         <h1>private</h1>
          {children}
        </div> 

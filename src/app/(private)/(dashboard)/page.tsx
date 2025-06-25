@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers'
+import EditButton from '@/app/Components/EditButton'
 export default async function Dashboard() {
 
   const cookieStore = (await cookies()).get('token')
@@ -22,19 +23,32 @@ export default async function Dashboard() {
     tags: string[];
   };
 
-  const posts:Post[] = await data.json()
+  const posts: Post[] = await data.json()
 
 
   return (
     <>
-      <p>posts</p>
-      <div>
-        {posts.map((post:Post) => (
-          <div key={post._id}>
-            <h2>{post.title}</h2>
-            <p>{post.content}</p>
-          </div>
-        ))}
+      <div className='flex flex-col items-center justify-center'>
+
+        <p>posts</p>
+        <div className='flex flex-col bg-blue-700 w-4/12'>
+          {posts.map((post: Post) => (
+
+            <div key={post._id}>
+              <h2>{post.title}</h2>
+              <p>{post.content}</p>
+              <p >{post.tags}</p>
+
+            <div>
+              <EditButton/>
+              
+            </div>
+
+            </div>
+            
+
+          ))}
+        </div>
       </div>
     </>
   );
