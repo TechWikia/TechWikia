@@ -10,7 +10,7 @@ export const SignupFormSchema = z.object({
     .string()
     .min(4, { message: 'Be at least 4 characters long' })
     .regex(/[a-zA-Z]/, { message: 'Contain at least one letter.' })
-    .regex(/[0-9]/, { message: 'Contain at least one number.' }) 
+    .regex(/[0-9]/, { message: 'Contain at least one number.' })
     .trim(),
 });
 
@@ -19,18 +19,31 @@ export const LoginFormSchema = z.object({
   password: z.string().min(1, { message: 'Password field must not be empty.' }),
 });
 
+export const CreateSchema = z.object({
+  title: z.string().min(1, { message: 'field must not be empty.' }),
+  content: z.string().min(1, { message: 'field must not be empty.' }),
+});
+
+
+
 export type FormState =
-   {
-      errors?: {
-        name?: string[];
-        email?: string[];
-        password?: string[];
-      };
-      message?: string;
-    }
+  {
+    errors?: {
+      name?: string[];
+      email?: string[];
+      password?: string[];
+    };
+    message?: string;
+  }
   | undefined;
 
-export type SessionPayload = {
-  userId: string | number;
-  expiresAt: Date;
-};
+export type FormStateCreate =
+  {
+    errors?: {
+      title?: string[];
+      content?: string[];
+    };
+    message?: string;
+  }
+  | undefined;
+

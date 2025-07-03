@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers'
-import EditButton from '@/app/Components/EditButton'
+import { EditButton } from '@/app/Components/EditButton'
+import Link from 'next/link'
 export default async function Dashboard() {
 
   const cookieStore = (await cookies()).get('token')
@@ -28,24 +29,31 @@ export default async function Dashboard() {
 
   return (
     <>
-      <div className='flex flex-col items-center justify-center'>
+      <div className=' flex flex-col items-center justify-center'>
 
         <p>posts</p>
-        <div className='flex flex-col bg-blue-700 w-4/12'>
+
+        <button className='p-4 m-2 bg-blue-950' ><Link href='/create' >Postar</Link></button>
+
+
+
+        <div className='p-3  flex flex-col w-4/12'>
           {posts.map((post: Post) => (
 
-            <div key={post._id}>
+            <div className='mb-3  bg-blue-700' key={post._id}>
               <h2>{post.title}</h2>
               <p>{post.content}</p>
               <p >{post.tags}</p>
 
-            <div>
-              <EditButton/>
-              
-            </div>
+              <div>
+                \\ editar posts button
+                <EditButton id={post._id} />
+
+                \\ excluir posts button
+              </div>
 
             </div>
-            
+
 
           ))}
         </div>
