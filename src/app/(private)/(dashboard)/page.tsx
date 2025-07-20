@@ -33,7 +33,8 @@ export default async function Dashboard() {
 
         <p>posts</p>
 
-        <button className='p-4 m-2 bg-blue-950' ><Link href='/create' >Postar</Link></button>
+        <Link href='/create' className='p-4 m-2 bg-blue-950 cursor-pointer'>Postar
+        </Link> 
 
 
 
@@ -46,10 +47,10 @@ export default async function Dashboard() {
               <p >{post.tags}</p>
 
               <div>
-                \\ editar posts button
-                <EditButton id={post._id} />
+        <Link href={`/edit/${post._id}`} className='bg-fuchsia-600 cursor-pointer'>Editar </Link> 
+               
 
-                \\ excluir posts button
+                
               </div>
 
             </div>
