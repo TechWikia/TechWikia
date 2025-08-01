@@ -1,10 +1,11 @@
 import { cookies } from 'next/headers'
 import EditForm from './editForm'
+import EditForm2 from './editForm2'
 
 export default async function EditPage({
     params,
   }: {
-    params: Promise<{ slug: string }>
+    params: Promise<{ slug: string }>  // pega id do post pelo parametro da url
   }) {
 
 
@@ -13,11 +14,12 @@ export default async function EditPage({
         return 'erro no token'
       }
 
+      // Com o ID, faz a busca pelo post
     const { slug } = await params
     const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/post/${slug}`, {
         headers: {
-          'Authorization': `Bearer ${cookieStore.value}`, // Use "Bearer" for JWT tokens
-          'Content-Type': 'application/json' // Adjust if needed
+          'Authorization': `Bearer ${cookieStore.value}`, 
+          'Content-Type': 'application/json' 
         }
       }
       )
@@ -33,9 +35,10 @@ export default async function EditPage({
         tags: string[];
       };
    
+      // retorna o formulario com o post buscado e o token
     return (
       <div className="flex items-center justify-center ">
-      <EditForm post={post} token={cookieStore.value} />
+      <EditForm2 post={post} token={cookieStore.value} />
     </div>
     )
   }
