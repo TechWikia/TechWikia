@@ -1,5 +1,7 @@
 import { cookies } from 'next/headers'
 import Link from 'next/link'
+import { DeleteButton } from '@/app/Components/DeleteButton'
+
 export default async function Dashboard() {
 
   const cookieStore = (await cookies()).get('token')
@@ -9,8 +11,8 @@ export default async function Dashboard() {
   }
   const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/post`, {
     headers: {
-      'Authorization': `Bearer ${cookieStore.value}`, // Use "Bearer" for JWT tokens
-      'Content-Type': 'application/json' // Adjust if needed
+      'Authorization': `Bearer ${cookieStore.value}`,
+      'Content-Type': 'application/json'
     }
   }
   )
@@ -33,7 +35,7 @@ export default async function Dashboard() {
         <p>posts</p>
 
         <Link href='/create' className='p-4 m-2 bg-blue-950 cursor-pointer'>Postar
-        </Link> 
+        </Link>
 
 
 
@@ -46,10 +48,10 @@ export default async function Dashboard() {
               <p >{post.tags}</p>
 
               <div>
-        <Link href={`/edit/${post._id}`} className='bg-fuchsia-600 cursor-pointer'>Editar </Link> 
-               
+                <Link href={`/edit/${post._id}`} className='bg-fuchsia-600 cursor-pointer'>Editar </Link>
+                <DeleteButton post={post._id} token={cookieStore.value}></DeleteButton>
 
-                
+
               </div>
 
             </div>

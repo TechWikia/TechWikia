@@ -1,6 +1,5 @@
 'use client'
 
-
 import { useActionState } from 'react'
 
 import {update} from '@/app/services/updatePost'
@@ -14,10 +13,6 @@ type Post = {
     tags: string[];
   }
 
-  type ActionState = {
-    message: string;
-    success: boolean;
-  }
 
 export default function EditForm2({ post, token }: { post: Post; token: string }) {
     const [state, formAction] = useActionState(update, { message: '', success: false })
