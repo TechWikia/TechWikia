@@ -3,15 +3,7 @@
 import { useActionState } from 'react'
 
 import {update} from '@/app/services/updatePost'
-
-type Post = {
-    _id: string;
-    title: string;
-    content: string;
-    userId: string;
-    createdAt: string;
-    tags: string[];
-  }
+import { Post } from '@/types/post';
 
 
 export default function EditForm2({ post, token }: { post: Post; token: string }) {

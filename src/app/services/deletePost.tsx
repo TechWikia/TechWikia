@@ -1,7 +1,6 @@
 'use server'
 
 import { redirect } from 'next/navigation'
-import { revalidatePath } from 'next/cache'
 type ActionState = {
     message: string;
     success: boolean;
@@ -28,7 +27,7 @@ export async function deletePost(
         return { message: 'Post deletado com sucesso!', success: true }
     } catch (error) {
         return { message: 'Falha ao deletar post', success: false }
-    }finally{
+    } finally{
         redirect('/')
     }
 

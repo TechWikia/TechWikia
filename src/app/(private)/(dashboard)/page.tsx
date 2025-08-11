@@ -1,6 +1,7 @@
 import { cookies } from 'next/headers'
 import Link from 'next/link'
 import { DeleteButton } from '@/app/Components/DeleteButton'
+import { Post } from '@/types/post'
 
 export default async function Dashboard() {
 
@@ -16,14 +17,7 @@ export default async function Dashboard() {
     }
   }
   )
-  type Post = {
-    _id: string;
-    title: string;
-    content: string;
-    userId: string;
-    createdAt: string;
-    tags: string[];
-  };
+ 
 
   const posts: Post[] = await data.json()
 

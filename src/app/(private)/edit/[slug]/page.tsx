@@ -1,6 +1,7 @@
 import { cookies } from 'next/headers'
 import EditForm from './editForm'
 import EditForm2 from './editForm2'
+import { Post } from '@/types/post'
 
 export default async function EditPage({
     params,
@@ -26,14 +27,7 @@ export default async function EditPage({
 
       const post: Post = await data.json()
 
-      type Post = {
-        _id: string;
-        title: string;
-        content: string;
-        userId: string;
-        createdAt: string;
-        tags: string[];
-      };
+     
    
       // retorna o formulario com o post buscado e o token
     return (

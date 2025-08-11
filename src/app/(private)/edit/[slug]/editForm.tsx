@@ -1,15 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import { Post } from '@/types/post';
 
-type Post = {
-  _id: string;
-  title: string;
-  content: string;
-  userId: string;
-  createdAt: string;
-  tags: string[];
-}
 
 export default function EditForm({ post, token }: { post: Post; token: string }) {
   const [title, setTitle] = useState(post.title)
